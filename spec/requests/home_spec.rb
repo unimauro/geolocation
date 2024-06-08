@@ -4,7 +4,9 @@ RSpec.describe "Homes", type: :request do
   describe "GET /status" do
     it "returns http success" do
       get "/status"
-      expect(response).to have_http_status(:success)
+      follow_redirect! if response.status == 301
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to eq("OK")
     end
   end
 end

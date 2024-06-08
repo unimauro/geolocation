@@ -1,12 +1,13 @@
 require 'httparty'
 
 class GeolocationValueService
-  def initialize(api_key)
-    @api_key = api_key
+  def initialize
+    @api_key = ENV['API_KEY']
+    @url_api = ENV['URL_API']
   end
 
   def fetch_data(ip_or_url)
-    response = HTTParty.get("http://api.ipstack.com/#{ip_or_url}?access_key=#{@api_key}")
+    response = HTTParty.get("http://#{@url_api}/#{ip_or_url}?access_key=#{@api_key}")
     if response.success?
       response.parsed_response
     else

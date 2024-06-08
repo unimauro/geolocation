@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def status
-    render json: { status: 'OK' }, status: :ok
+    render plain: "OK", status: :ok
   end
 end

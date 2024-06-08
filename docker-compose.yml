@@ -25,5 +25,20 @@ services:
       IPSTACK_API_KEY: ${IPSTACK_API_KEY}
       SECRET_KEY_BASE: ${SECRET_KEY_BASE}
 
+  test:
+    build: .
+    command: >
+      bash -c "
+        bundle exec rails db:create &&
+        bundle exec rails db:migrate 
+      "
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      IPSTACK_API_KEY: ${IPSTACK_API_KEY}
+      SECRET_KEY_BASE: ${SECRET_KEY_BASE}
 volumes:
   postgres_data:
