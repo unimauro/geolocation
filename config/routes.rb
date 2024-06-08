@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Rswag::Api::Engine => '/api-docs'
+  mount Rswag::Ui::Engine => '/api-docs'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -6,15 +8,15 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   #validate
-  resources :geolocation_values, only: [:create, :show, :destroy], param: :ip_or_url
+  namespace :api do
+    namespace :v1 do
+      resources :geolocation_values, only: [:create, :show, :destroy], param: :ip_or_url
+    end
+  end
 
   #routes
-  root 'home#status'
 
-  #Swagger config/routes.rb
-  if defined?(SwaggerUiEngine)
-    mount SwaggerUiEngine::Engine, at: '/docs'
-  end
+  get '/status', to: 'home#status'
 
   # Defines the root path route ("/")
   # root "posts#index"

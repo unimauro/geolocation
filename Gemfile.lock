@@ -122,6 +122,8 @@ GEM
     jbuilder (2.12.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    json-schema (4.3.0)
+      addressable (>= 2.8)
     loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -233,6 +235,17 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.13.1)
+    rswag-api (2.13.0)
+      activesupport (>= 3.1, < 7.2)
+      railties (>= 3.1, < 7.2)
+    rswag-specs (2.13.0)
+      activesupport (>= 3.1, < 7.2)
+      json-schema (>= 2.2, < 5.0)
+      railties (>= 3.1, < 7.2)
+      rspec-core (>= 2.14)
+    rswag-ui (2.13.0)
+      actionpack (>= 3.1, < 7.2)
+      railties (>= 3.1, < 7.2)
     rubyzip (2.3.2)
     selenium-webdriver (4.21.1)
       base64 (~> 0.2)
@@ -250,8 +263,6 @@ GEM
       railties (>= 6.0.0)
     stringio (3.1.0)
     strscan (3.1.0)
-    swagger-blocks (3.0.0)
-    swagger-ui_rails (0.1.7)
     thor (1.3.1)
     timeout (0.4.1)
     turbo-rails (2.0.5)
@@ -295,11 +306,12 @@ DEPENDENCIES
   rake
   redis (>= 4.0.1)
   rspec-rails (~> 5.0)
+  rswag-api
+  rswag-specs
+  rswag-ui
   selenium-webdriver
   sprockets-rails
   stimulus-rails
-  swagger-blocks
-  swagger-ui_rails
   turbo-rails
   tzinfo-data
   web-console
