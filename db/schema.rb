@@ -10,17 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_08_040027) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_08_172108) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "geolocation_values", force: :cascade do |t|
     t.string "ip"
-    t.string "url"
-    t.float "latitude"
-    t.float "longitude"
-    t.string "city"
-    t.string "country"
+    t.text "web"
+    t.jsonb "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -21,6 +21,10 @@ Things you may want to cover:
 
 * Deployment instructions
 
+* PostgreSql
+
+brew services start postgresql
+
 * Commands:
 
 docker-compose down
@@ -36,12 +40,21 @@ docker-compose logs web
 docker-compose run web rake db:create
 docker-compose run web rake db:migrate
 
+or
+ 
+docker-compose run web bundle exec rake db:migrate
+
+or
+docker-compose run web bundle exec rails db:schema:dump
+
 * Test:
 
 Without Docker
 bundle exec rspec
 
 With Docker
+docker-compose -f docker-compose.test.yml up --build
+
 docker-compose run web /bin/bash
 
 bundle exec rspec

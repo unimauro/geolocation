@@ -8,22 +8,20 @@ services:
       POSTGRES_DB: geolocation
     volumes:
       - postgres_data:/var/lib/postgresql/data
-  web:
+  test:
     build: .
     command: >
       bash -c "
         rm -f tmp/pids/server.pid &&
         bundle exec rails db:migrate &&
-        bundle exec rails s -b '0.0.0.0'
+        bundle exec rspec
       "
     volumes:
       - .:/app
-    ports:
-      - "3000:3000"
     depends_on:
       - db
     environment:
-      DATABASE_URL: postgres://${GEOLOCATION_PRODUCTION_USERNAME}:${GEOLOCATION_PRODUCTION_PASSWORD}@host.docker.internal:5432/geolocation
+      DATABASE_URL: postgres://${GEOLOCATION_TEST_USERNAME}:${GEOLOCATION_TEST_PASSWORD}@host.docker.internal:5432/geolocation_test
       IPSTACK_API_KEY: ${IPSTACK_API_KEY}
       SECRET_KEY_BASE: ${SECRET_KEY_BASE}
 volumes:
