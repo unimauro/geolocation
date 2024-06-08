@@ -10,7 +10,16 @@ Rails.application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
-
+  config.force_ssl = false
+  config.action_dispatch.default_headers = ({
+    'Content-Security-Policy' => "default-src 'self' http: https:;\
+      font-src 'self' http: https: data:;\
+      img-src 'self' http: https: data: blob:;\
+      object-src 'self';\
+      script-src 'self' http: https: 'unsafe-inline' 'unsafe-eval';\
+      style-src 'self' http: https: 'unsafe-inline';\
+      frame-ancestors *"
+  })
   # Show full error reports.
   config.consider_all_requests_local = true
 
