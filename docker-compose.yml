@@ -14,5 +14,6 @@ services:
     depends_on:
       - db
     environment:
-      DATABASE_URL: postgres://postgres:password@db:5432/my_database
-      IPSTACK_API_KEY: your_ipstack_api_key
+      DATABASE_URL: ${DATABASE_URL}
+      IPSTACK_API_KEY: ${IPSTACK_API_KEY}
+      SECRET_KEY_BASE: ${SECRET_KEY_BASE}

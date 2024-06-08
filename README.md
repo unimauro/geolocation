@@ -21,4 +21,28 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* Commands:
+
+docker-compose down
+
+docker-compose up --build
+
+* Validation
+
+docker-compose logs web
+
+* Migration:
+
+docker-compose run web rake db:create
+docker-compose run web rake db:migrate
+
+* Test:
+
+docker-compose run web rspec
+
+* Bundler:
+
+docker-compose run web bundle install
+
+
+

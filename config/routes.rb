@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   #validate
   resources :geolocation_values, only: [:create, :show, :destroy], param: :ip_or_url
 
+  #routes
+  root 'home#status'
 
   # Defines the root path route ("/")
   # root "posts#index"
