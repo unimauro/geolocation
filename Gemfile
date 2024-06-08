@@ -51,6 +51,8 @@ gem "rswag-specs"
 gem "rswag-api"
 gem "rswag-ui"
 
+gem "paranoia"
+
 gem "dotenv", require: "dotenv/load"
 
 group :development, :test do
