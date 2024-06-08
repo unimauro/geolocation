@@ -38,7 +38,18 @@ docker-compose run web rake db:migrate
 
 * Test:
 
-docker-compose run web rspec
+Without Docker
+bundle exec rspec
+
+With Docker
+docker-compose run web /bin/bash
+
+bundle exec rspec
+
+or
+
+docker-compose run web bundle exec rspec
+
 
 * Bundler:
 

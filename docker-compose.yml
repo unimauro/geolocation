@@ -4,10 +4,10 @@ services:
     image: postgres
     environment:
       POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
   web:
     build: .
-    #chmod -R 777 /rails/public/assets &&
-    #bundle exec rails assets:precompile &&
     command: >
       bash -c "
         bundle exec rails db:create &&
@@ -24,3 +24,6 @@ services:
       DATABASE_URL: ${DATABASE_URL}
       IPSTACK_API_KEY: ${IPSTACK_API_KEY}
       SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+
+volumes:
+  postgres_data:
