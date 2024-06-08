@@ -69,3 +69,8 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+group :development, :production do
+  gem "swagger-blocks"
+  gem "swagger-ui_rails"
+end

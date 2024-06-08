@@ -11,6 +11,11 @@ Rails.application.routes.draw do
   #routes
   root 'home#status'
 
+  #Swagger config/routes.rb
+  if defined?(SwaggerUiEngine)
+    mount SwaggerUiEngine::Engine, at: '/docs'
+  end
+
   # Defines the root path route ("/")
   # root "posts#index"
 end

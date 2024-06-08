@@ -44,5 +44,9 @@ docker-compose run web rspec
 
 docker-compose run web bundle install
 
+* Down and Clean
 
+docker-compose down -v --rmi all
+
+docker-compose rm -f -v
 
