@@ -41,7 +41,7 @@ docker-compose run web rake db:create
 docker-compose run web rake db:migrate
 
 or
- 
+
 docker-compose run web bundle exec rake db:migrate
 
 or
@@ -74,3 +74,5 @@ docker-compose down -v --rmi all
 
 docker-compose rm -f -v
 
+* bundler install
+docker-compose run web bundle install

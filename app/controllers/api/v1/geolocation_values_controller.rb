@@ -1,15 +1,21 @@
 module Api
   module V1
     class GeolocationValuesController < ApplicationController
+      skip_before_action :verify_authenticity_token
       before_action :set_geolocation, only: [:show, :destroy]
       before_action :initialize_geolocation_service, only: [:create]
 
       # POST /api/v1/geolocation_values
       def create
-        data = GeolocationValueService.fetch_data(params[:ip_or_url])
+        puts "Entrando"
+        data = @geolocation_service.fetch_data(params[:ip_or_url])
         if data
-          # Procesar los datos y crear el objeto Geolocation
-          @geolocation = Geolocation.new(ip: data['ip'], url: data['url'], city: data['city'], country: data['country'])
+          # Procesar los datos y crear el objeto GeolocationValue
+          @geolocation = GeolocationValue.new(
+            ip: data['ip'], 
+            data: data, 
+            web: params[:ip_or_url]
+          )
           if @geolocation.save
             render json: @geolocation, status: :created
           else
@@ -40,15 +46,10 @@ module Api
       end
 
       private
-
-      # Use strong parameters for security
-      def geolocation_params
-        params.require(:geolocation).permit(:ip_or_url)
-      end
-
+      
       # Use before_action to find the geolocation
       def set_geolocation
-        @geolocation = Geolocation.find_by(ip: params[:ip_or_url]) || Geolocation.find_by(url: params[:ip_or_url])
+        @geolocation = GeolocationValue.find_by(ip: params[:ip_or_url]) || GeolocationValue.find_by(web: params[:ip_or_url])
       end
 
       def initialize_geolocation_service
