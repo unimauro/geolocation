@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   #validate
   namespace :api do
     namespace :v1 do
-      resources :geolocation_values, only: [:index, :create, :show, :destroy] do
+      resources :geolocation_values, only: [:index, :create, :update, :show, :destroy] do
         get ':ip_or_url', action: :show, on: :collection, constraints: { ip_or_url: /[^\/]+/ }
+        put ':ip_or_url', action: :update, on: :collection, constraints: { ip_or_url: /[^\/]+/ }
         delete ':ip_or_url', action: :destroy, on: :collection, constraints: { ip_or_url: /[^\/]+/ }
       end
     end
