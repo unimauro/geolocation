@@ -1,0 +1,76 @@
+---
+swagger: '2.0'
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/geolocation_values":
+    post:
+      summary: Creates a geolocation value
+      tags:
+      - GeolocationValues
+      consumes:
+      - application/json
+      parameters:
+      - name: geolocation
+        in: body
+        schema:
+          type: object
+          properties:
+            ip_or_url:
+              type: string
+          required:
+          - ip_or_url
+      responses:
+        '500':
+          description: invalid request
+  "/api/v1/geolocation_values/{ip_or_url}":
+    get:
+      summary: Retrieves a geolocation value
+      tags:
+      - GeolocationValues
+      produces:
+      - application/json
+      parameters:
+      - name: ip_or_url
+        in: path
+        type: string
+        required: true
+      responses:
+        '404':
+          description: geolocation value not found
+    put:
+      summary: Updates a geolocation value
+      tags:
+      - GeolocationValues
+      consumes:
+      - application/json
+      parameters:
+      - name: ip_or_url
+        in: path
+        type: string
+        required: true
+      - name: geolocation
+        in: body
+        schema:
+          type: object
+          properties:
+            ip_or_url:
+              type: string
+          required:
+          - ip_or_url
+      responses:
+        '404':
+          description: geolocation value not found
+    delete:
+      summary: Deletes a geolocation value
+      tags:
+      - GeolocationValues
+      parameters:
+      - name: ip_or_url
+        in: path
+        type: string
+        required: true
+      responses:
+        '404':
+          description: geolocation value not found

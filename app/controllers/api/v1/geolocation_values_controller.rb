@@ -10,7 +10,8 @@ module Api
       def index
         per_page = params[:per_page].present? ? params[:per_page].to_i : 10
         page = params[:page].present? ? params[:page].to_i : 1
-        @geolocations = GeolocationValue.where(deleted_at: nil).select(:ip, :web).page(page).per(per_page)
+        offset = (page - 1) * per_page
+        @geolocations = GeolocationValue.where(deleted_at: nil).select(:ip, :web).offset(offset).limit(per_page)
         render json: @geolocations.map { |geo| { ip: geo.ip, web: geo.web } }
       end
 

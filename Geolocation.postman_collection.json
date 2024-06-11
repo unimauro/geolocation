@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "c1720617-59eb-4413-8a7d-d5b381f03473",
+		"name": "Geolocation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15675914"
+	},
+	"item": [
+		{
+			"name": "up",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/up",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/v1/geolocation_values",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"ip_or_url\": \"134.201.250.155\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/geolocation_values",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"geolocation_values"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/v1/geolocation_values",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/geolocation_values",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"geolocation_values"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/v1/geolocation_values/{ip_or_url}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/geolocation_values/8.8.8.8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"geolocation_values",
+						"8.8.8.8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/v1/geolocation_values/{ip_or_url}",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/geolocation_values/{ip_or_url}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"geolocation_values",
+						"{ip_or_url}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/v1/geolocation_values/{ip_or_url} Copy",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/geolocation_values/8.8.8.8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"geolocation_values",
+						"8.8.8.8"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

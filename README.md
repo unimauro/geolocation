@@ -5,21 +5,9 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version :
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+ruby 3.3.0 (2023-12-25 revision 5124f9ac75) [arm64-darwin23]
 
 * PostgreSql
 
@@ -75,4 +63,9 @@ docker-compose down -v --rmi all
 docker-compose rm -f -v
 
 * bundler install
+
 docker-compose run web bundle install
+
+* RSWAG
+
+mount Rswag::Ui::Engine, at: '/api-docs'
