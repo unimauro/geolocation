@@ -1,8 +1,8 @@
 module GeolocationsValuesHelper
   def format_geolocation(geolocation)
-    if geolocation.nil?
-      'Unknown'
-    elsif geolocation.ip?
+    return 'Unknown' if geolocation.nil?
+
+    if geolocation.ip?
       "IP: #{geolocation.ip}"
     elsif geolocation.web?
       "WEB: #{geolocation.web}"

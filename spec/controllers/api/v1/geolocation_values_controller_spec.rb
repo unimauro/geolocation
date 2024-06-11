@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::GeolocationValuesController, type: :controller do
-  let(:valid_attributes) { { geolocation: { ip: '134.201.250.155' } } }
-  let(:invalid_attributes) { { geolocation: { ip: 'invalid' } } }
+  let(:valid_attributes) { { ip_or_url: '134.201.250.155' } }
+  let(:invalid_attributes) { { ip_or_url: 'invalid' } }
 
   describe 'POST #create' do
     context 'with valid params' do
