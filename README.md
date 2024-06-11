@@ -69,3 +69,8 @@ docker-compose run web bundle install
 * RSWAG
 
 mount Rswag::Ui::Engine, at: '/api-docs'
+
+
+* SWAGGER :
+
+<img width="1512" alt="Captura de pantalla 2024-06-11 a la(s) 4 18 26 a  m" src="https://github.com/unimauro/geolocation/assets/237848/86532bc1-3765-46da-8fa7-63e6904305f3">
