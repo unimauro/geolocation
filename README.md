@@ -61,7 +61,7 @@ bundle exec rspec
 
 or
 
-docker-compose run web bundle exec rspec
+docker-compose run web bundle exec rspec spec
 
 
 * Bundler:
