@@ -53,6 +53,8 @@ gem "rswag-ui"
 
 gem "paranoia"
 
+gem "kaminari"
+
 gem "dotenv", require: "dotenv/load"
 
 group :development, :test do

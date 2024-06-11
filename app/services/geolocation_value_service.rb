@@ -7,10 +7,6 @@ class GeolocationValueService
   end
 
   def fetch_data(ip_or_url)
-    puts "======="
-    puts @api_key
-    puts @url_api
-    puts "======="
     response = HTTParty.get("http://#{@url_api}/#{ip_or_url}?access_key=#{@api_key}")
     if response.success?
       response.parsed_response

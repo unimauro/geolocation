@@ -10,12 +10,14 @@ Rails.application.routes.draw do
   #validate
   namespace :api do
     namespace :v1 do
-      resources :geolocation_values, only: [:create, :show, :destroy], param: :ip_or_url
+      resources :geolocation_values, only: [:index, :create, :show, :destroy] do
+        get ':ip_or_url', action: :show, on: :collection, constraints: { ip_or_url: /[^\/]+/ }
+        delete ':ip_or_url', action: :destroy, on: :collection, constraints: { ip_or_url: /[^\/]+/ }
+      end
     end
   end
-
+  
   #routes
-
   get 'status', to: 'home#status'
 
   # Defines the root path route ("/")
