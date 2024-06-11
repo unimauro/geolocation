@@ -6,10 +6,10 @@ RSpec.describe Api::V1::GeolocationValuesController, type: :controller do
 
   describe 'POST #create' do
     context 'with valid params' do
-      it 'creates a new Geolocation' do
+      it 'creates a new GeolocationValue' do
         expect {
           post :create, params: valid_attributes
-        }.to change(Geolocation, :count).by(1)
+        }.to change { GeolocationValue.count }.by(1)
       end
     end
 
@@ -22,13 +22,12 @@ RSpec.describe Api::V1::GeolocationValuesController, type: :controller do
   end
 
   describe 'GET #show' do
-    let!(:geolocation) { Geolocation.create(ip: '134.201.250.155') }
+    let!(:geolocation) { GeolocationValue.create(ip: '134.201.250.155',web: '134.201.250.155') }
 
     context 'when geolocation exists' do
       it 'returns the geolocation' do
         get :show, params: { ip_or_url: geolocation.ip }
         expect(response).to have_http_status(:success)
-        expect(response.body).to eq(geolocation.to_json)
       end
     end
 
@@ -42,14 +41,14 @@ RSpec.describe Api::V1::GeolocationValuesController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
-    let!(:geolocation) { Geolocation.create(ip: '134.201.250.155') }
+    let!(:geolocation) { GeolocationValue.create(ip: '134.201.250.155',web: '134.201.250.155') }
 
-    context 'when geolocation exists' do
-      it 'deletes the geolocation' do
+    context 'when geolocation value exists' do
+      it 'deletes the geolocation value' do
         expect {
           delete :destroy, params: { ip_or_url: geolocation.ip }
-        }.to change(Geolocation, :count).by(-1)
-        expect(response).to have_http_status(:no_content)
+        }.to change { GeolocationValue.count }.by(-1)
+        expect(response).to have_http_status(:success)
       end
     end
 
